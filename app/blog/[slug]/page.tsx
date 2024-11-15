@@ -1,16 +1,14 @@
+// app/blog/[slug]/page.tsx
+
 type Params = {
-  params: {
-    slug: string;
-  };
+  slug: string;
 };
 
-// `generateMetadata` does not need to return a promise
-export async function generateMetadata({ params }: Params) {
+export async function generateMetadata({ params }: { params: Params }) {
   return { title: `Post: ${params.slug}` };
 }
 
-// The Page component expects the `params` prop to be passed
-export default function Page({ params }: Params) {
+export default function Page({ params }: { params: Params }) {
   return (
     <>
       <h1>Slug: {params.slug}</h1>
