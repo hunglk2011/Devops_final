@@ -1,13 +1,19 @@
+// app/blog/[slug]/page.tsx
+
 type Params = {
-  params: {
-    slug: string;
-  };
+  slug: string;
 };
 
-export async function generateMetadata({ params }: Params) {
+export async function generateMetadata({ params }: { params: Params }) {
   return { title: `Post: ${params.slug}` };
 }
 
-export default function Page({ params }: Params) {
-  return <><h1>Slug: {params.slug}</h1> <p>HCMUE</p></>;
+export default function Page({ params }: { params: Params }) {
+  return (
+    <>
+      <h1>Slug: {params.slug}</h1>
+      <p>HCMUE</p>
+      <p>2024</p>
+    </>
+  );
 }
